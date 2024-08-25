@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "COR_ID"; }
+td:nth-of-type(2):before { content: "COR_DEGREE_TITLE"; }
+td:nth-of-type(3):before { content: "COR_DIRECTOR_NAME"; }
+td:nth-of-type(4):before { content: "COR_INT_TEL_NUM"; }
+td:nth-of-type(5):before { content: "COR_ROOM_NUM"; }
+td:nth-of-type(6):before { content: "COR_DEPT_NAME"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>COR_ID</th>
+	<th>COR_DEGREE_TITLE</th>
+	<th>COR_DIRECTOR_NAME</th>
+	<th>COR_INT_TEL_NUM</th>
+	<th>COR_ROOM_NUM</th>
+	<th>COR_DEPT_NAME</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Bachelor of Computer Science</td>
+<td>Elizabeth Turner</td>
+<td>021-345-6789</td>
+<td>CS101</td>
+<td>Computer Science</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>Bachelor of Mechanical Engineering</td>
+<td>Richard Harris</td>
+<td>021-987-6543</td>
+<td>EN202</td>
+<td>Engineering</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Bachelor of Science in Mathematics</td>
+<td>Laura Mitchell</td>
+<td>021-456-7890</td>
+<td>MA303</td>
+<td>Mathematics</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>Bachelor of Science in Physics</td>
+<td>Andrew Scott</td>
+<td>021-654-1234</td>
+<td>PH404</td>
+<td>Physics</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td>Bachelor of Science in Chemistry</td>
+<td>Sarah Brown</td>
+<td>021-789-3456</td>
+<td>CH505</td>
+<td>Chemistry</td>
+	</tr>
+</tbody></table><!-- SQL:
+select COR_ID COR_ID, COR_DEGREE_TITLE COR_DEGREE_TITLE, COR_DIRECTOR_NAME COR_DIRECTOR_NAME, COR_INT_TEL_NUM COR_INT_TEL_NUM, COR_ROOM_NUM COR_ROOM_NUM, COR_DEPT_NAME COR_DEPT_NAME from (select * from "GROUP19"."COURSE")--></body></html>

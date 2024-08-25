@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "ADVISOR_ID"; }
+td:nth-of-type(2):before { content: "ADVISOR_FNAME"; }
+td:nth-of-type(3):before { content: "ADVISOR_LNAME"; }
+td:nth-of-type(4):before { content: "ADVISOR_BIRTHDAY"; }
+td:nth-of-type(5):before { content: "ADVISOR_POSITION"; }
+td:nth-of-type(6):before { content: "ADVISOR_DEPARTMENT"; }
+td:nth-of-type(7):before { content: "ADVISOR_ROOM_NUM"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>ADVISOR_ID</th>
+	<th>ADVISOR_FNAME</th>
+	<th>ADVISOR_LNAME</th>
+	<th>ADVISOR_BIRTHDAY</th>
+	<th>ADVISOR_POSITION</th>
+	<th>ADVISOR_DEPARTMENT</th>
+	<th>ADVISOR_ROOM_NUM</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Elizabeth</td>
+<td>Turner</td>
+<td>14-MAY-70</td>
+<td>Senior Lecturer</td>
+<td>Computer Science</td>
+<td>CS101</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>Richard</td>
+<td>Harris</td>
+<td>22-JUL-80</td>
+<td>Professor</td>
+<td>Engineering</td>
+<td>EN202</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Laura</td>
+<td>Mitchell</td>
+<td>11-MAR-75</td>
+<td>Lecturer</td>
+<td>Mathematics</td>
+<td>MA303</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>Andrew</td>
+<td>Scott</td>
+<td>30-SEP-65</td>
+<td>Associate Professor</td>
+<td>Physics</td>
+<td>PH404</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td>Sarah</td>
+<td>Brown</td>
+<td>17-DEC-85</td>
+<td>Professor</td>
+<td>Chemistry</td>
+<td>CH505</td>
+	</tr>
+</tbody></table><!-- SQL:
+select ADVISOR_ID ADVISOR_ID, ADVISOR_FNAME ADVISOR_FNAME, ADVISOR_LNAME ADVISOR_LNAME, ADVISOR_BIRTHDAY ADVISOR_BIRTHDAY, ADVISOR_POSITION ADVISOR_POSITION, ADVISOR_DEPARTMENT ADVISOR_DEPARTMENT, ADVISOR_ROOM_NUM ADVISOR_ROOM_NUM from (select * from "GROUP19"."ADVISOR")--></body></html>

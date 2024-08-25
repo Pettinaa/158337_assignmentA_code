@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='Cp1252'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "NOK_ID"; }
+td:nth-of-type(2):before { content: "NOK_FNAME"; }
+td:nth-of-type(3):before { content: "NOK_LNAME"; }
+td:nth-of-type(4):before { content: "NOK_RELATIONSHIP"; }
+td:nth-of-type(5):before { content: "STU_ID"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>NOK_ID</th>
+	<th>NOK_FNAME</th>
+	<th>NOK_LNAME</th>
+	<th>NOK_RELATIONSHIP</th>
+	<th>STU_ID</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>Mary</td>
+<td>Johnson</td>
+<td>Mother</td>
+<td align="right">1</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>John</td>
+<td>Chen</td>
+<td>Father</td>
+<td align="right">2</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>Jane</td>
+<td>Lee</td>
+<td>Mother</td>
+<td align="right">3</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>Robert</td>
+<td>Williams</td>
+<td>Father</td>
+<td align="right">4</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td>Anna</td>
+<td>Kim</td>
+<td>Mother</td>
+<td align="right">5</td>
+	</tr>
+</tbody></table><!-- SQL:
+select NOK_ID NOK_ID, NOK_FNAME NOK_FNAME, NOK_LNAME NOK_LNAME, NOK_RELATIONSHIP NOK_RELATIONSHIP, STU_ID STU_ID from (select * from "GROUP19"."NEXT_OF_KIN")--></body></html>
