@@ -37,9 +37,9 @@ INSERT INTO Student VALUES(5, 'Grace', 'Kim', TO_DATE('1997-05-10', 'YYYY-MM-DD'
 
 -- Insert data into Manager table
 --Since there are 3 halls, there are only 3 managers here
-INSERT INTO Manager VALUES(1, 'Jonathan Reed');
-INSERT INTO Manager VALUES(2, 'Emily White');
-INSERT INTO Manager VALUES(3, 'Matthew Green');
+INSERT INTO Manager VALUES(1, 'Jonathan', 'Reed');
+INSERT INTO Manager VALUES(2, 'Emily', 'White');
+INSERT INTO Manager VALUES(3, 'Matthew', 'Green');
 
 -- Insert data into Staff table
 INSERT INTO Staff VALUES(1, 'Jonathan', 'Reed', 'Male', 'Hall Manager', 'Tui Hall');
@@ -94,11 +94,12 @@ INSERT INTO UnitMember VALUES(5, 5, 7, 'Mark', 'Wright', 3, 'child');
 
 
 -- Insert data into Invoice table
-INSERT INTO Invoice VALUES(1, 1, 1, 'INV2024-001', 'S1, S2', TO_DATE('2024-01-15', 'YYYY-MM-DD'), 101, 1, '15 University Rd', 'TO_DATE('2024-01-01', 'YYYY-MM-DD'), 'Credit Card',TO_DATE('2024-01-01', 'YYYY-MM-DD'));
-INSERT INTO Invoice VALUES(2, 2, 2, 'INV2024-002', 'S1, S2', TO_DATE('2024-04-15', 'YYYY-MM-DD'), 201, 1, '27 Campus Drive', 'TO_DATE('2024-02-28', 'YYYY-MM-DD'), 'Bank Transfer', NULL);
-INSERT INTO Invoice VALUES(3, 3, 3, 'INV2024-003', 'S1, S2, SUMMER', TO_DATE('2024-01-15', 'YYYY-MM-DD'), 301, 1, '42 Scholar Ave', 'TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'Cheque', TO_DATE('2024-01-01', 'YYYY-MM-DD'));
+INSERT INTO Invoice VALUES(1, 1, 1, 'INV2024-001', 'S1, S2', TO_DATE('2024-01-15', 'YYYY-MM-DD'), 101, 1, '15 University Rd', TO_DATE('2024-01-01', 'YYYY-MM-DD'), 'Credit Card', TO_DATE('2024-01-01', 'YYYY-MM-DD'));
+INSERT INTO Invoice VALUES(2, 2, 2, 'INV2024-002', 'S1, S2', TO_DATE('2024-04-15', 'YYYY-MM-DD'), 201, 1, '27 Campus Drive', TO_DATE('2024-02-28', 'YYYY-MM-DD'), 'Bank Transfer', NULL);
+INSERT INTO Invoice VALUES(3, 3, 3, 'INV2024-003', 'S1, S2, SUMMER', TO_DATE('2024-01-15', 'YYYY-MM-DD'), 301, 1, '42 Scholar Ave', TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'Cheque', TO_DATE('2024-01-01', 'YYYY-MM-DD'));
 INSERT INTO Invoice VALUES(4, 4, 4, 'INV2024-004', 'S2', TO_DATE('2024-06-15', 'YYYY-MM-DD'), 401, 1, '98 Research Blvd', TO_DATE('2024-04-13', 'YYYY-MM-DD'), 'Credit Card', NULL);
 INSERT INTO Invoice VALUES(5, 5, 5, 'INV2024-005', 'S1, S2, SUMMER', TO_DATE('2024-01-15', 'YYYY-MM-DD'), NULL, 1, '99 Research Blvd', NULL, 'Credit Card', TO_DATE('2024-01-01', 'YYYY-MM-DD'));
+
 
 -- Insert data into PaymentList table
 INSERT INTO PaymentList VALUES(1, 'YES');
@@ -116,7 +117,6 @@ INSERT INTO Next_Of_Kin VALUES(5, 'Anna', 'Kim', 'Mother', 5);
 
 -- Insert data into NOK_Tel table
 INSERT INTO NOK_Tel VALUES(1, '021-567-1234');
-INSERT INTO NOK_Tel VALUES(1, '021-567-1235');
 INSERT INTO NOK_Tel VALUES(2, '021-890-4567');
 INSERT INTO NOK_Tel VALUES(3, '021-234-7890');
 INSERT INTO NOK_Tel VALUES(4, '021-345-6789');
